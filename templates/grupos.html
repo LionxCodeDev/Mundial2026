@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Grupos</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'widgets/header.html' %}
+    {% include 'widgets/navigation.html' %}
+
+    {# Macro para no repetir código de equipo #}
+    {% macro render_equipo(nombre, iso) %}
+    <div class="text-center" style="width: 40%;">
+        {% if iso == 'none' %}
+            <div class="mb-1" style="height: 33px; display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-circle-question fa-2x text-secondary"></i>
+            </div>
+        {% else %}
+            <img src="https://flagcdn.com/w80/{{ iso }}.png" class="img-thumbnail mb-1 shadow-sm" style="width: 50px;">
+        {% endif %}
+        <div class="small fw-bold text-truncate">{{ nombre }}</div>
+    </div>
+    {% endmacro %}
+
+    <div class="container mt-5">
+
+        <h2 class="text-center fw-bold mb-5 text-uppercase" style="color: #4A773C;">🏆 Fase de Grupos</h2>
+
+        <div class="row">
+        {% for g in grupos %}
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    
+                    <div class="card-header bg-dark text-white fw-bold">Grupo {{ g.grupo }}</div>
+            
+                        <div class="card-body">
+                            <small class="text-muted fw-bold">JORNADA 1</small>
+                            <div class="d-flex align-items-center justify-content-between border-bottom py-2">
+                                {{ render_equipo(g.j1_e1, g.j1_i1) }} <div class="fw-bold text-muted">VS</div> {{ render_equipo(g.j1_e2, g.j1_i2) }}
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between py-2 border-bottom mb-3">
+                                {{ render_equipo(g.j1_e3, g.j1_i3) }} <div class="fw-bold text-muted">VS</div> {{ render_equipo(g.j1_e4, g.j1_i4) }}
+                            </div>
+
+                            <small class="text-muted fw-bold">JORNADA 2</small>
+                            <div class="d-flex align-items-center justify-content-between border-bottom py-2">
+                                {{ render_equipo(g.j2_e1, g.j2_i1) }} <div class="fw-bold text-muted">VS</div> {{ render_equipo(g.j2_e2, g.j2_i2) }}
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between py-2 border-bottom mb-3">
+                                {{ render_equipo(g.j2_e3, g.j2_i3) }} <div class="fw-bold text-muted">VS</div> {{ render_equipo(g.j2_e4, g.j2_i4) }}
+                            </div>
+
+                            <small class="text-muted fw-bold">JORNADA 3</small>
+                            <div class="d-flex align-items-center justify-content-between border-bottom py-2">
+                                {{ render_equipo(g.j3_e1, g.j3_i1) }} <div class="fw-bold text-muted">VS</div> {{ render_equipo(g.j3_e2, g.j3_i2) }}
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between py-2">
+                                {{ render_equipo(g.j3_e3, g.j3_i3) }} <div class="fw-bold text-muted">VS</div> {{ render_equipo(g.j3_e4, g.j3_i4) }}
+                            </div>
+
+                            <hr class="my-3"> <div class="bg-light p-2 rounded">
+                            <small class="text-uppercase fw-bold d-block mb-2 text-center" style="font-size: 0.7rem; color: #4A773C;">
+                                <i class="fa-solid fa-chart-line"></i> Proyección de Clasificados
+                            </small>
+                            <div class="row g-2">
+                                <div class="col-6 border-end">
+                                    <div class="text-center">
+                                        <span class="d-block fw-bold text-dark small">{{ g['1er Clasificado'] }}</span>
+                                        <span class="badge bg-success" style="font-size: 0.7rem;">{{ g['Prob. 1ero'] }}</span>
+                                        <small class="d-block text-muted" style="font-size: 0.6rem;">Líder</small>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <span class="d-block fw-bold text-dark small">{{ g['2do Clasificado'] }}</span>
+                                        <span class="badge bg-primary" style="font-size: 0.7rem;">{{ g['Prob. 2do'] }}</span>
+                                        <small class="d-block text-muted" style="font-size: 0.6rem;">Escolta</small>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Grupo de la muerte</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'widgets/header.html' %}
+    {% include 'widgets/navigation.html' %}
+
+    <div class="container mt-5">
+
+        <h2 class="text-center fw-bold mb-5 text-uppercase" style="color: #4A773C;">🏆 Grupos de la Muerte</h2>
+
+    <div class="row justify-content-center">
+        {% for g in muerte %}
+        <div class="col-md-11 mb-4">
+            <div class="card shadow-sm border-0 {% if g['Dificultad'] == 'Pesadilla' %}borde-pesadilla{% else %}borde-dificil{% endif %}" style="border-radius: 15px;">
+                <div class="card-body p-4">
+                    <div class="row align-items-center text-center">
+                        
+                        <div class="col-md-3 border-end">
+                            <h3 class="fw-bold mb-0">{{ g['Grupo'] }}</h3>
+                            <span class="badge {% if g['Dificultad'] == 'Pesadilla' %}bg-danger{% else %}bg-warning text-dark{% endif %}">
+                                {{ g['Dificultad'] }}
+                            </span>
+                        </div>
+
+                        <div class="col-md-4 border-end">
+                            <small class="text-muted d-block text-uppercase">Cabeza de Serie</small>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <img src="https://flagpedia.net/data/flags/h80/{{ get_country_code(g['Top_Seed']) }}.png"
+                                     style="width: 45px; border-radius: 4px;" class="me-2 shadow-sm">
+                                <h5 class="fw-bold mb-0">{{ g['Top_Seed'] }}</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5 px-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="fw-bold text-uppercase">Poder del Grupo</small>
+                                <span class="fw-bold" style="color: #4A773C;">{{ g['Avg_Elo'] | round(0) }}</span>
+                            </div>
+                            <div class="progress" style="height: 12px; border-radius: 10px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-verde-header" 
+                                     role="progressbar" 
+                                     data-porcentaje="{{ (g['Avg_Elo'] / 2000) * 100 }}"
+                                     style="width: 0%;">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    </div>
+
+    <script>
+        // Script para animar las barras y evitar errores de Jinja en el style
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+            const pct = bar.getAttribute('data-porcentaje');
+            setTimeout(() => { bar.style.width = pct + '%'; }, 300);
+        });
+    </script>
+</body>
+</html>

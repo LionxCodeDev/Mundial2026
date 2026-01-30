@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicciones - Mundial 2026</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'widgets/header.html' %}
+    {% include 'widgets/navigation.html' %}
+<div class="container mt-5">
+    <h2 class="text-center fw-bold mb-5 text-uppercase" style="color: #4A773C; letter-spacing: 2px;">🏆 Probabilidades de Campeón - Mundial 2026</h2>
+    
+    <div class="row justify-content-center">
+        {% for fila in predicciones %}
+        <div class="col-md-10 mb-5">
+            <div class="card shadow-lg border-0" style="border-radius: 20px; background: #ffffff;">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="flex-shrink-0 me-3">
+                            {% set pais_code = fila['Team'].lower() %}
+                            <img src="https://flagpedia.net/data/flags/h80/{{ get_country_code(fila['Team']) }}.png" 
+                                 alt="Bandera de {{ fila['Team'] }}"
+                                 style="width: 60px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                        </div>
+                        <h3 class="fw-bold mb-0">{{ loop.index }}. {{ fila['Team'] }}</h3>
+                        <div class="ms-auto text-end">
+                            <span class="text-muted small d-block text-uppercase">Prob. Campeón</span>
+                            <span class="fs-3 fw-bold" style="color: #4A773C;">{{ fila['Champion'] }}%</span>
+                        </div>
+                    </div>
+
+                    <div class="progress mb-4" style="height: 20px; border-radius: 10px; background-color: #f0f2f5;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-gradient-primary" 
+                             role="progressbar" 
+                             data-porcentaje="{{ fila['Ancho_Visual'] }}"
+                             style="background: linear-gradient(90deg, #4A773C, #8BC34A);">
+                        </div>
+                    </div>
+
+                    <div class="row text-center g-2">
+                        <div class="col">
+                            <div class="p-2 border rounded bg-light">
+                                <small class="text-muted d-block">Ganar Grupo</small>
+                                <span class="fw-bold">{{ fila['Win Group'] }}%</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-2 border rounded bg-light">
+                                <small class="text-muted d-block">Cuartos</small>
+                                <span class="fw-bold">{{ fila['Quarters'] }}%</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-2 border rounded bg-light">
+                                <small class="text-muted d-block">Semis</small>
+                                <span class="fw-bold">{{ fila['Semis'] }}%</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-2 border rounded bg-light">
+                                <small class="text-muted d-block">Final</small>
+                                <span class="fw-bold">{{ fila['Final'] }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+        const valor = bar.getAttribute('data-porcentaje');
+        // Un pequeño delay para que la animación se vea al cargar
+        setTimeout(() => {
+            bar.style.width = valor + '%';
+        }, 200);
+    });
+</script>
+</body>
+</html>

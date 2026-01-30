@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Goleadores 2026</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    {% include 'widgets/header.html' %}
+    {% include 'widgets/navigation.html' %}
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold mb-5 text-uppercase" style="color: #4A773C; letter-spacing: 2px;">
+        🏆 Bota de Oro: Top 10 Proyectado
+    </h2>
+    
+    <div class="row row-cols-1 row-cols-md-2 g-5">
+        {% for fila in goleadores %}
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 position-relative" style="border-radius: 25px; background: white; transition: transform 0.3s;">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <img src="{{ url_for('static', filename=fila['foto_path']) }}" 
+                                class="border border-4 border-white" 
+                                alt="{{ fila['scorer'] }}"
+                                style="width: 180px; height: 250px; object-fit: fill;">
+                        </div>
+
+                        <div class="ms-4 flex-grow-1">
+                            <h3 class="fw-bold mb-0 text-dark">{{ fila['scorer'] }}</h3>
+                            <p class="text-primary fw-semibold mb-3">{{ fila['team'] }}</p>
+                            
+                            <div class="row g-0 align-items-center">
+                                <div class="col-7">
+                                    <small class="text-uppercase text-muted d-block" style="font-size: 0.7rem;">Goles Proyectados</small>
+                                    <span class="display-6 fw-bold text-dark">{{ fila['Projected_Goals'] | round(1) }}</span>
+                                </div>
+                                <div class="col-5 text-end">
+                                    <div class="bg-light rounded-pill px-3 py-2 border">
+                                        <span class="fw-bold text-dark">{{ fila['goals_per_game_est'] | round(2) }}</span>
+                                        <small class="text-muted d-block" style="font-size: 0.6rem;">Goles/Partido</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-dark p-2 fs-5 shadow-sm" style="width: 40px; height: 40px; border: 3px solid white;">
+                    {{ loop.index }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

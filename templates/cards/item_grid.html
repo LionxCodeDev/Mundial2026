@@ -1,0 +1,12 @@
+{% macro create_button(url, icon, title, text, color_class='text-primary') %}
+<div class="col-6 col-md-3"> <a href="{{ url }}" class="text-decoration-none">
+        <div class="card h-100 shadow-sm border-0 menu-card">
+            <div class="card-body py-4 text-center">
+                <i class="fa-solid {{ icon }} fa-2x mb-3 {{ color_class }}"></i>
+                <h5 class="fw-bold">{{ title }}</h5>
+                <p class="small text-muted mb-0">{{ text }}</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endmacro %}

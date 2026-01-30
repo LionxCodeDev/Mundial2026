@@ -1,0 +1,105 @@
+
+/* Contenedor del menú vertical */
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* El botón personalizado */
+.btn-menu-mundial {
+    background: white;
+    border-radius: 15px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 5px solid #4A773C; /* Tu verde oscuro */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Efecto al pasar el mouse */
+.btn-menu-mundial:hover {
+    transform: translateX(10px); /* Se mueve a la derecha */
+    background-color: #f8fff4; /* Un verde muy clarito */
+    border-left: 10px solid #8BC34A; /* Tu verde claro */
+    box-shadow: 0 8px 15px rgba(74, 119, 60, 0.2);
+}
+
+.btn-menu-mundial .icon-container {
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-right: 15px;
+}
+
+/* Colores de los iconos */
+.bg-verde-soft { background-color: #e8f5e9; color: #4A773C; }
+
+.menu-card {
+    transition: all 0.2s ease-in-out;
+    border-radius: 12px;
+    background: #ffffff;
+}
+.menu-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}
+
+.img-thumbnail {
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    transition: transform 0.2s;
+}
+
+.img-thumbnail:hover {
+    transform: scale(1.2); /* La bandera se agranda al pasar el mouse */
+}
+
+.card-header {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #4A773C, #8BC34A);
+    transition: width 1.5s ease-in-out !important;
+}
+
+.align-middle-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.borde-pesadilla { border-left: 8px solid #dc3545 !important; }
+.borde-dificil { border-left: 8px solid #ffc107 !important; }
+
+/* Para que la barra de progreso sea verde como tu header */
+.bg-verde-header {
+    background-color: #4A773C !important;
+}
+
+.borde-pesadilla {
+    border-left: 8px solid #dc3545 !important; /* Rojo */
+}
+
+.borde-dificil {
+    border-left: 8px solid #ffc107 !important; /* Amarillo */
+}
