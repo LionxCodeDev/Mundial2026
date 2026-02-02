@@ -1,22 +1,21 @@
-﻿scorer,team,goals,goals_per_game_est,Team,Expected_Games,Projected_Goals
-Cristiano Ronaldo,Portugal,108,5.4,Portugal,4.69,25.326000000000004
-Romelu Lukaku,Belgium,60,3.0,Bélgica,4.590000000000001,13.770000000000003
-Lionel Messi,Argentina,55,2.75,Argentina,4.890000000000001,13.447500000000002
-Harry Kane,England,58,2.9,Inglaterra,4.609999999999999,13.368999999999998
-Robert Lewandowski,Poland,63,3.15,Polonia,3.2199999999999998,10.142999999999999
-Luis Suarez,Uruguay,47,2.35,Uruguay,4.2700000000000005,10.034500000000001
-Kylian Mbappe,France,38,1.9,Francia,4.9,9.31
-Thomas Muller,Germany,35,1.75,Alemania,4.81,8.417499999999999
-Memphis Depay,Netherlands,35,1.75,Países Bajos,4.69,8.207500000000001
-Edin Dzeko,Bosnia and Herzegovina,50,2.5,Bosnia,3.02,7.55
-Alvaro Morata,Spain,29,1.45,España,5.010000000000001,7.264500000000001
-Antoine Griezmann,France,29,1.45,Francia,4.9,7.105
-Neymar,Brazil,31,1.55,Brasil,4.54,7.037
-Olivier Giroud,France,28,1.4,Francia,4.9,6.86
-Sardar Azmoun,Iran,29,1.45,Irán,4.57,6.6265
-Edinson Cavani,Uruguay,30,1.5,Uruguay,4.2700000000000005,6.405000000000001
-Georginio Wijnaldum,Netherlands,24,1.2,Países Bajos,4.69,5.628
-Son Heung-min,South Korea,25,1.25,Corea del Sur,4.5,5.625
-Ivan Perisic,Croatia,25,1.25,Croacia,4.390000000000001,5.487500000000001
-Karim Benzema,France,22,1.1,Francia,4.9,5.390000000000001
-
+﻿scorer,team,goals,name_key,nationality_name,overall,potential,age_2026,shooting,attacking_finishing,goals_per_game_est,skill_mult,age_mult,Team,Expected_Games,Projected_Goals
+Kylian Mbappe,France,20,kylian mbappe,,70.0,,27.0,70.0,65.0,1.0,1.0925,1.1,Francia,5.696666666666666,7.0
+Harry Kane,England,15,harry kane,England,90.0,90.0,31.0,91.0,94.0,0.8,1.2095,0.9,Inglaterra,5.536666666666667,5.0
+Cristiano Ronaldo,Portugal,13,cristiano ronaldo,,70.0,,27.0,70.0,65.0,0.6,1.0925,1.1,Portugal,5.466666666666667,4.0
+Romelu Lukaku,Belgium,14,romelu lukaku,,70.0,,27.0,70.0,65.0,0.7,1.0925,1.1,Bélgica,4.466666666666667,4.0
+Bruno Fernandes,Portugal,12,bruno fernandes,Portugal,88.0,89.0,30.0,86.0,83.0,0.6,1.1755,1.1,Portugal,5.466666666666667,4.0
+Erling Haaland,Norway,12,erling haaland,,70.0,,27.0,70.0,65.0,0.6,1.0925,1.1,Noruega,3.8666666666666667,3.0
+Lionel Messi,Argentina,9,lionel messi,,70.0,,27.0,70.0,65.0,0.4,1.0925,1.1,Argentina,5.79,3.0
+Alvaro Morata,Spain,10,alvaro morata,,70.0,,27.0,70.0,65.0,0.5,1.0925,1.1,España,5.630000000000001,3.0
+Cody Gakpo,Netherlands,11,cody gakpo,,70.0,,27.0,70.0,65.0,0.6,1.0925,1.1,Países Bajos,5.140000000000001,3.0
+Olivier Giroud,France,8,olivier giroud,,70.0,,27.0,70.0,65.0,0.4,1.0925,1.1,Francia,5.696666666666666,3.0
+Lautaro Martinez,Argentina,8,lautaro martinez,,70.0,,27.0,70.0,65.0,0.4,1.0925,1.1,Argentina,5.79,3.0
+Dani Olmo,Spain,6,dani olmo,Spain,82.0,87.0,27.0,76.0,74.0,0.3,1.127,1.1,España,5.630000000000001,2.0
+Richarlison,Brazil,6,richarlison,Brazil,82.0,87.0,28.0,78.0,80.0,0.3,1.1429999999999998,1.1,Brasil,5.173333333333334,2.0
+Jonathan David,Canada,6,jonathan david,,70.0,,27.0,70.0,65.0,0.3,1.0925,1.1,Canadá,4.276666666666666,2.0
+Mohamed Salah,Egypt,7,mohamed salah,,70.0,,27.0,70.0,65.0,0.4,1.0925,1.1,Egipto,3.976666666666667,2.0
+Wout Weghorst,Netherlands,7,wout weghorst,Netherlands,83.0,83.0,32.0,83.0,87.0,0.4,1.171,0.9,Países Bajos,5.140000000000001,2.0
+Julian Alvarez,Argentina,7,julian alvarez,Argentina,75.0,85.0,25.0,74.0,75.0,0.4,1.1215,1.1,Argentina,5.79,2.0
+Scott McTominay,Scotland,8,scott mctominay,Scotland,80.0,84.0,28.0,75.0,71.0,0.4,1.119,1.1,Scotland,3.4366666666666665,2.0
+Andrej Kramaric,Croatia,9,andrej kramaric,Croatia,83.0,83.0,34.0,86.0,87.0,0.4,1.1815,0.9,Croacia,4.556666666666667,2.0
+Ferran Torres,Spain,6,ferran torres,Spain,82.0,90.0,25.0,79.0,81.0,0.3,1.148,1.1,España,5.630000000000001,2.0
